@@ -17732,7 +17732,6 @@
       "properties": {
         "service_status": {
           "$ref": "#/definitions/serviceStatusChild"
-          }
         }
       }
     },
