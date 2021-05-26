@@ -444,6 +444,7 @@ from dd_sdk_1_0.models.service_infos import ServiceInfos
 from dd_sdk_1_0.models.service_name import ServiceName
 from dd_sdk_1_0.models.service_ntp_info import ServiceNtpInfo
 from dd_sdk_1_0.models.service_status import ServiceStatus
+from dd_sdk_1_0.models.service_status_child import ServiceStatusChild
 from dd_sdk_1_0.models.service_status_group import ServiceStatusGroup
 from dd_sdk_1_0.models.service_status_list import ServiceStatusList
 from dd_sdk_1_0.models.services_filter_query import ServicesFilterQuery

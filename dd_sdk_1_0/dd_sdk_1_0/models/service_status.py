@@ -33,125 +33,45 @@ class ServiceStatus(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'details': 'str',
-        'code': 'int',
-        'node_service_status': 'list[NodeServiceStatus]',
-        'link': 'list[RestLinkRep]'
+        'service_status': 'list[ServiceStatusChild]'
     }
 
     attribute_map = {
-        'details': 'details',
-        'code': 'code',
-        'node_service_status': 'node_service_status',
-        'link': 'link'
+        'service_status': 'service_status'
     }
 
-    def __init__(self, details=None, code=None, node_service_status=None, link=None, _configuration=None):  # noqa: E501
+    def __init__(self, service_status=None, _configuration=None):  # noqa: E501
         """ServiceStatus - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._details = None
-        self._code = None
-        self._node_service_status = None
-        self._link = None
+        self._service_status = None
         self.discriminator = None
 
-        self.details = details
-        self.code = code
-        if node_service_status is not None:
-            self.node_service_status = node_service_status
-        if link is not None:
-            self.link = link
+        if service_status is not None:
+            self.service_status = service_status
 
     @property
-    def details(self):
-        """Gets the details of this ServiceStatus.  # noqa: E501
+    def service_status(self):
+        """Gets the service_status of this ServiceStatus.  # noqa: E501
 
 
-        :return: The details of this ServiceStatus.  # noqa: E501
-        :rtype: str
+        :return: The service_status of this ServiceStatus.  # noqa: E501
+        :rtype: list[ServiceStatusChild]
         """
-        return self._details
+        return self._service_status
 
-    @details.setter
-    def details(self, details):
-        """Sets the details of this ServiceStatus.
-
-
-        :param details: The details of this ServiceStatus.  # noqa: E501
-        :type: str
-        """
-        if self._configuration.client_side_validation and details is None:
-            raise ValueError("Invalid value for `details`, must not be `None`")  # noqa: E501
-
-        self._details = details
-
-    @property
-    def code(self):
-        """Gets the code of this ServiceStatus.  # noqa: E501
+    @service_status.setter
+    def service_status(self, service_status):
+        """Sets the service_status of this ServiceStatus.
 
 
-        :return: The code of this ServiceStatus.  # noqa: E501
-        :rtype: int
-        """
-        return self._code
-
-    @code.setter
-    def code(self, code):
-        """Sets the code of this ServiceStatus.
-
-
-        :param code: The code of this ServiceStatus.  # noqa: E501
-        :type: int
-        """
-        if self._configuration.client_side_validation and code is None:
-            raise ValueError("Invalid value for `code`, must not be `None`")  # noqa: E501
-
-        self._code = code
-
-    @property
-    def node_service_status(self):
-        """Gets the node_service_status of this ServiceStatus.  # noqa: E501
-
-
-        :return: The node_service_status of this ServiceStatus.  # noqa: E501
-        :rtype: list[NodeServiceStatus]
-        """
-        return self._node_service_status
-
-    @node_service_status.setter
-    def node_service_status(self, node_service_status):
-        """Sets the node_service_status of this ServiceStatus.
-
-
-        :param node_service_status: The node_service_status of this ServiceStatus.  # noqa: E501
-        :type: list[NodeServiceStatus]
+        :param service_status: The service_status of this ServiceStatus.  # noqa: E501
+        :type: list[ServiceStatusChild]
         """
 
-        self._node_service_status = node_service_status
-
-    @property
-    def link(self):
-        """Gets the link of this ServiceStatus.  # noqa: E501
-
-
-        :return: The link of this ServiceStatus.  # noqa: E501
-        :rtype: list[RestLinkRep]
-        """
-        return self._link
-
-    @link.setter
-    def link(self, link):
-        """Sets the link of this ServiceStatus.
-
-
-        :param link: The link of this ServiceStatus.  # noqa: E501
-        :type: list[RestLinkRep]
-        """
-
-        self._link = link
+        self._service_status = service_status
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -61,7 +61,8 @@ class MtreeInfo(object):
         self.id = id
         if name is not None:
             self.name = name
-        self.data_access_ip = data_access_ip
+        if data_access_ip is not None:
+            self.data_access_ip = data_access_ip
         if link is not None:
             self.link = link
 
@@ -127,8 +128,6 @@ class MtreeInfo(object):
         :param data_access_ip: The data_access_ip of this MtreeInfo.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and data_access_ip is None:
-            raise ValueError("Invalid value for `data_access_ip`, must not be `None`")  # noqa: E501
 
         self._data_access_ip = data_access_ip
 
