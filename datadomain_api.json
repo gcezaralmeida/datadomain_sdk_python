@@ -19696,8 +19696,7 @@
     "mtreeInfo": {
       "description": "Mtree information",
       "required": [
-        "id",
-        "data_access_ip"
+        "id"
       ],
       "type": "object",
       "properties": {
