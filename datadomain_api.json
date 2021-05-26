@@ -17731,10 +17731,7 @@
       "type": "object",
       "properties": {
         "service_status": {
-          "type": "array",
-          "minItems": 0,
-          "items": {
-            "$ref": "#/definitions/serviceStatusChild"
+          "$ref": "#/definitions/serviceStatusChild"
           }
         }
       }
