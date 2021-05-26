@@ -33,7 +33,7 @@ class ServiceStatus(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'service_status': 'list[ServiceStatusChild]'
+        'service_status': 'ServiceStatusChild'
     }
 
     attribute_map = {
@@ -58,7 +58,7 @@ class ServiceStatus(object):
 
 
         :return: The service_status of this ServiceStatus.  # noqa: E501
-        :rtype: list[ServiceStatusChild]
+        :rtype: ServiceStatusChild
         """
         return self._service_status
 
@@ -68,7 +68,7 @@ class ServiceStatus(object):
 
 
         :param service_status: The service_status of this ServiceStatus.  # noqa: E501
-        :type: list[ServiceStatusChild]
+        :type: ServiceStatusChild
         """
 
         self._service_status = service_status
