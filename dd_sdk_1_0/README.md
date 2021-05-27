@@ -17,9 +17,9 @@ Python 2.7 and 3.4+
 If the python package is hosted on Github, you can install directly from Github
 
 ```sh
-pip install git+https://github.com/GIT_USER_ID/GIT_REPO_ID.git
+pip install git+https://github.com/gcezaralmeida/datadomain_sdk_python.git#subdirectory=dd_sdk_1_0
 ```
-(you may need to run `pip` with root permission: `sudo pip install git+https://github.com/GIT_USER_ID/GIT_REPO_ID.git`)
+(you may need to run `pip` with root permission: `sudo pip install git+https://github.com/gcezaralmeida/datadomain_sdk_python.git#subdirectory=dd_sdk_1_0`)
 
 Then import the package:
 ```python
@@ -50,19 +50,37 @@ import time
 import dd_sdk_1_0
 from dd_sdk_1_0.rest import ApiException
 from pprint import pprint
+import urllib3
 
-# create an instance of the API class
-api_instance = dd_sdk_1_0.AlertsApi(dd_sdk_1_0.ApiClient(configuration))
-system_id = 'system_id_example' # str | DDR system identifier. It must be zero or uuid of the requesting DDR  @#$type=xs:string
-authorization = 'authorization_example' # str | Clients need to specify Authorization or X-DD-AUTH-TOKEN.  @#$type=xs:string (optional)
-x_dd_auth_token = 'x_dd_auth_token_example' # str | Clients need to specify Authorization or X-DD-AUTH-TOKEN.  @#$type=xs:string (optional)
+urllib3.disable_warnings()
 
+# Create an instance of the API class
+token = None
+configuration = dd_sdk_1_0.Configuration()
+configuration.host = 'https://DD_IP_ADDRESS:3009'
+configuration.verify_ssl = False
+auth_payload = {'auth_info': {'username': 'sysadmin', 'password': 'changeme'}}
+
+
+# Create an instance of the API class
+api_client = dd_sdk_1_0.ApiClient(configuration)
+
+auth_api = dd_sdk_1_0.AuthApi(api_client)
+system_api = dd_sdk_1_0.SystemApi(api_client)
+
+# Authenticate and get the token and uuid
 try:
-    # Delete all alerts
-    api_response = api_instance.rest_v10_dd_systems_systemid_alerts_delete(system_id, authorization=authorization, x_dd_auth_token=x_dd_auth_token)
+    auth_api.rest_v10_auth_post(auth_payload)
+    token = api_client.auth_token
+except ApiException as e:
+    print("Exception when calling AuthApi->rest_v10_auth_post: %s\n" % e)
+    
+# Get system information
+try:
+    api_response = system_api.rest_v10_system_get(x_dd_auth_token=token)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling AlertsApi->rest_v10_dd_systems_systemid_alerts_delete: %s\n" % e)
+    print("Exception when calling SystemApi->rest_v10_system_get: %s\n" % e)
 
 ```
 
@@ -326,5 +344,8 @@ Class | Method | HTTP request | Description
 
 ## Author
 
+Gabriel Cezar de Almeida
+gcezar.almeida@gmail.com
+https://www.linkedin.com/in/gabrielcezar1/
 
 
