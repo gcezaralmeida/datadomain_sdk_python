@@ -19766,7 +19766,6 @@
       "required": [
         "id",
         "name",
-        "data_access_ip",
         "data_availability"
       ],
       "type": "object",
@@ -22371,9 +22370,7 @@
     },
     "dataMovementInfo": {
       "description": "Data Movement information",
-      "required": [
-        "operation_info"
-      ],
+      "required": [],
       "type": "object",
       "properties": {
         "operation_info": {
