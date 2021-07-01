@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
 **name** | **str** |  | 
-**data_access_ip** | **str** |  | 
+**data_access_ip** | **str** |  | [optional] 
 **data_availability** | **str** |  | 
 **is_degraded** | [**MtreeIsdegraded**](MtreeIsdegraded.md) | true: MTree degraded status | [optional] 
 **degraded_by** | [**MtreeDegradedby**](MtreeDegradedby.md) | Mtree Degraded by: ips; | [optional] 

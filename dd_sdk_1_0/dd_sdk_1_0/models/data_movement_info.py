@@ -61,7 +61,8 @@ class DataMovementInfo(object):
         self._link = None
         self.discriminator = None
 
-        self.operation_info = operation_info
+        if operation_info is not None:
+            self.operation_info = operation_info
         if throttle is not None:
             self.throttle = throttle
         if schedule is not None:
@@ -89,8 +90,6 @@ class DataMovementInfo(object):
         :param operation_info: The operation_info of this DataMovementInfo.  # noqa: E501
         :type: str
         """
-        if self._configuration.client_side_validation and operation_info is None:
-            raise ValueError("Invalid value for `operation_info`, must not be `None`")  # noqa: E501
 
         self._operation_info = operation_info
 

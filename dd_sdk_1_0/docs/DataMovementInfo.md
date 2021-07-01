@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**operation_info** | **str** |  | 
+**operation_info** | **str** |  | [optional] 
 **throttle** | **int** |  | [optional] 
 **schedule** | [**DataMovementSchedule**](DataMovementSchedule.md) |  | [optional] 
 **status** | [**DataMovementStatusInfo**](DataMovementStatusInfo.md) |  | [optional] 

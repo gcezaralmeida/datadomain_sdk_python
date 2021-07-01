@@ -76,7 +76,6 @@ class ApiClient(object):
         # Set default User-Agent.
         self.user_agent = 'Swagger-Codegen/1.0.0/python'
         self.client_side_validation = configuration.client_side_validation
-        self.auth_token = None
 
     def __del__(self):
         if self._pool is not None:
@@ -233,9 +232,6 @@ class ApiClient(object):
         # save response body into a tmp file and return the instance
         if response_type == "file":
             return self.__deserialize_file(response)
-        # Edit Manually by gcezaralmeida. Get the X-DD-AUTH-TOKEN from the header.
-        if 'X-DD-AUTH-TOKEN' in response.getheaders():
-            self.auth_token = response.getheader('X-DD-AUTH-TOKEN')
 
         # fetch data from response object
         try:
