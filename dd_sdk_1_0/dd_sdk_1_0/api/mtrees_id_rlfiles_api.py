@@ -116,7 +116,7 @@ class MtreesIdRlfilesApi(object):
             raise ValueError("Invalid value for parameter `page` when calling `rest_v10_dd_systems_systemid_mtrees_id_rlfiles_get`, must be a value greater than or equal to `0`")  # noqa: E501
         if self.api_client.client_side_validation and ('size' in params and params['size'] < 0):  # noqa: E501
             raise ValueError("Invalid value for parameter `size` when calling `rest_v10_dd_systems_systemid_mtrees_id_rlfiles_get`, must be a value greater than or equal to `0`")  # noqa: E501
-        if self.api_client.client_side_validation and ('filter' in params and not re.search(r'^\\s*(rl_filepath)\\s*=\\s*(\\S*)\\s*$', params['filter'])):  # noqa: E501
+        if self.api_client.client_side_validation and ('filter' in params and not re.search('^\\s*(rl_filepath)\\s*=\\s*(\\S*)\\s*$', params['filter'])):  # noqa: E501
             raise ValueError("Invalid value for parameter `filter` when calling `rest_v10_dd_systems_systemid_mtrees_id_rlfiles_get`, must conform to the pattern `/^\\s*(rl_filepath)\\s*=\\s*(\\S*)\\s*$/`")  # noqa: E501
         if self.api_client.client_side_validation and ('exclude_fields' in params and not re.search(r'^([^,]+,*)+$', params['exclude_fields'])):  # noqa: E501
             raise ValueError("Invalid value for parameter `exclude_fields` when calling `rest_v10_dd_systems_systemid_mtrees_id_rlfiles_get`, must conform to the pattern `/^([^,]+,*)+$/`")  # noqa: E501
